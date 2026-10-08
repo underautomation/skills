@@ -1,0 +1,25 @@
+{
+  "name": "yaskawa-csharp",
+  "version": "3.0.1",
+  "description": "Write C# code for Yaskawa Motoman robots with the UnderAutomation Yaskawa SDK.",
+  "author": {
+    "name": "UnderAutomation",
+    "email": "contact@underautomation.com",
+    "url": "https://underautomation.com"
+  },
+  "homepage": "https://underautomation.com/yaskawa",
+  "repository": "https://github.com/underautomation/skills",
+  "license": "MIT",
+  "keywords": [
+    "yaskawa",
+    "motoman",
+    "robot",
+    "industrial-robot",
+    "high-speed-ethernet-server",
+    "yrc1000",
+    "dx200",
+    "csharp",
+    "underautomation"
+  ],
+  "displayName": "UnderAutomation Yaskawa (C#)"
+}

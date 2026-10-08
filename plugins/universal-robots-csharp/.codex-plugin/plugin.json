@@ -1,0 +1,49 @@
+{
+  "name": "universal-robots-csharp",
+  "version": "9.4.0",
+  "description": "Write C# code for Universal Robots cobots with the UnderAutomation Universal Robots SDK.",
+  "author": {
+    "name": "UnderAutomation",
+    "email": "contact@underautomation.com",
+    "url": "https://underautomation.com"
+  },
+  "homepage": "https://underautomation.com/universal-robots",
+  "repository": "https://github.com/underautomation/skills",
+  "license": "MIT",
+  "keywords": [
+    "universal-robots",
+    "ur",
+    "cobot",
+    "robot",
+    "rtde",
+    "urscript",
+    "polyscope",
+    "dashboard-server",
+    "csharp",
+    "underautomation"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "UnderAutomation UR (C#)",
+    "shortDescription": "UR cobot SDK for C#",
+    "longDescription": "UnderAutomation Universal Robots SDK for C# and .NET (NuGet UnderAutomation.UniversalRobots). Use it when code talks to a Universal Robots cobot (CB-Series, e-Series, UR20 and UR30, PolyScope 5 or PolyScope X) or to URSim from a PC, or when the user asks about the Universal Robots SDK, its interfaces or its exceptions. Interfaces of the SDK: Primary and Secondary Interface (data at 10 Hz, URScript), RTDE (up to 500 Hz), Dashboard Server, REST API of PolyScope X, Interpreter Mode, XML-RPC server, socket server, SSH and SFTP. It answers questions such as which interface and which robot setting to use, how to read the position, the I/O, the variables and the registers, how to power on the robot and run a program, send URScript, move the robot, transfer files, read the alarms, compute the kinematics offline, and why an exception is thrown. It holds the documentation pages, the C# code samples and the list of every public type and member of the SDK.\n\nIntended users: developers who write C# and .NET applications that connect a PC to a Universal Robots robot controller with the UnderAutomation Universal Robots SDK.\n\nLimitations: the skill is documentation only. It does not connect to the robot and does not run code by itself. It documents version 9.4.0 of the SDK. The SDK (NuGet UnderAutomation.UniversalRobots) must be installed in the project and has its own license agreement.",
+    "developerName": "UnderAutomation",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Choose the protocol and the controller option for a task",
+      "Write C# code with the public API of the Universal Robots SDK 9.4.0",
+      "Explain the exceptions of the SDK and what to check",
+      "Apply safety rules to the code that moves a robot"
+    ],
+    "websiteURL": "https://underautomation.com/universal-robots",
+    "supportURL": "https://underautomation.com/contact",
+    "privacyPolicyURL": "https://underautomation.com/legal#privacy_policy",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png",
+    "defaultPrompt": [
+      "Should I use RTDE or the Primary Interface to read the TCP position of my UR cobot?",
+      "Write a program that powers on my UR robot, releases the brakes and plays a program.",
+      "Why do I get a ConnectException when I connect to my UR cobot?"
+    ]
+  }
+}

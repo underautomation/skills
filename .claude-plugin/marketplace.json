@@ -1,0 +1,70 @@
+{
+  "name": "underautomation",
+  "description": "Agent skills for the UnderAutomation robot SDKs, one plugin per robot brand and per language (C# or Python).",
+  "owner": {
+    "name": "UnderAutomation",
+    "url": "https://underautomation.com"
+  },
+  "plugins": [
+    {
+      "name": "abb-csharp",
+      "source": "./plugins/abb-csharp",
+      "category": "development",
+      "tags": ["abb", "robotics", "csharp", "dotnet"]
+    },
+    {
+      "name": "abb-python",
+      "source": "./plugins/abb-python",
+      "category": "development",
+      "tags": ["abb", "robotics", "python"]
+    },
+    {
+      "name": "fanuc-csharp",
+      "source": "./plugins/fanuc-csharp",
+      "category": "development",
+      "tags": ["fanuc", "robotics", "csharp", "dotnet"]
+    },
+    {
+      "name": "fanuc-python",
+      "source": "./plugins/fanuc-python",
+      "category": "development",
+      "tags": ["fanuc", "robotics", "python"]
+    },
+    {
+      "name": "staubli-csharp",
+      "source": "./plugins/staubli-csharp",
+      "category": "development",
+      "tags": ["staubli", "robotics", "csharp", "dotnet"]
+    },
+    {
+      "name": "staubli-python",
+      "source": "./plugins/staubli-python",
+      "category": "development",
+      "tags": ["staubli", "robotics", "python"]
+    },
+    {
+      "name": "universal-robots-csharp",
+      "source": "./plugins/universal-robots-csharp",
+      "category": "development",
+      "tags": ["universal-robots", "robotics", "csharp", "dotnet"]
+    },
+    {
+      "name": "universal-robots-python",
+      "source": "./plugins/universal-robots-python",
+      "category": "development",
+      "tags": ["universal-robots", "robotics", "python"]
+    },
+    {
+      "name": "yaskawa-csharp",
+      "source": "./plugins/yaskawa-csharp",
+      "category": "development",
+      "tags": ["yaskawa", "robotics", "csharp", "dotnet"]
+    },
+    {
+      "name": "yaskawa-python",
+      "source": "./plugins/yaskawa-python",
+      "category": "development",
+      "tags": ["yaskawa", "robotics", "python"]
+    }
+  ]
+}

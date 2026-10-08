@@ -1,0 +1,26 @@
+{
+  "name": "staubli-csharp",
+  "version": "1.0.0",
+  "description": "Write C# code for Staubli robots with the UnderAutomation Staubli SDK.",
+  "author": {
+    "name": "UnderAutomation",
+    "email": "contact@underautomation.com",
+    "url": "https://underautomation.com"
+  },
+  "homepage": "https://underautomation.com/staubli",
+  "repository": "https://github.com/underautomation/skills",
+  "license": "MIT",
+  "keywords": [
+    "staubli",
+    "robot",
+    "industrial-robot",
+    "soap",
+    "val3",
+    "cs8",
+    "cs9",
+    "staubli-robotics-suite",
+    "csharp",
+    "underautomation"
+  ],
+  "displayName": "UnderAutomation Staubli (C#)"
+}

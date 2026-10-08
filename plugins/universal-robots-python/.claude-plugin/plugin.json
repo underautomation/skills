@@ -1,0 +1,26 @@
+{
+  "name": "universal-robots-python",
+  "version": "9.4.0",
+  "description": "Write Python code for Universal Robots cobots with the UnderAutomation Universal Robots SDK.",
+  "author": {
+    "name": "UnderAutomation",
+    "email": "contact@underautomation.com",
+    "url": "https://underautomation.com"
+  },
+  "homepage": "https://underautomation.com/universal-robots",
+  "repository": "https://github.com/underautomation/skills",
+  "license": "MIT",
+  "keywords": [
+    "universal-robots",
+    "ur",
+    "cobot",
+    "robot",
+    "rtde",
+    "urscript",
+    "polyscope",
+    "dashboard-server",
+    "python",
+    "underautomation"
+  ],
+  "displayName": "UnderAutomation UR (Python)"
+}

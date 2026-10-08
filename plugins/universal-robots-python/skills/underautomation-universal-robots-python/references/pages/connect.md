@@ -1,0 +1,178 @@
+# Connect to the robot
+
+Enable the interfaces of the UR cobot, set the network and the remote control, then connect with ConnectParameters. Ports, settings and errors.
+
+Web page: https://underautomation.com/universal-robots/documentation/connect
+
+This page explains how to prepare a Universal Robots cobot for the SDK, and how to connect to it from C# or Python. It applies to CB-Series and e-Series robots with PolyScope, to the robots with PolyScope X, and to URSim.
+
+## Interfaces and ports
+
+The SDK uses the standard interfaces of the robot. Each one is enabled in `ConnectParameters`, and some must also be enabled on the robot.
+
+| Interface            | Port         | `ConnectParameters`                  | Default  | Setting on the robot                               |
+| -------------------- | ------------ | ------------------------------------ | -------- | -------------------------------------------------- |
+| Primary Interface    | 30001        | `PrimaryInterface`                   | enabled  | Service `Primary Client Interface`                 |
+| Dashboard Server     | 29999        | `Dashboard`                          | enabled  | Service `Dashboard Server`. Not on PolyScope X     |
+| RTDE                 | 30004        | `Rtde`                               | disabled | Service `RTDE`                                     |
+| Interpreter Mode     | 30020        | `InterpreterMode`                    | disabled | Service `Interpreter Mode Socket`                  |
+| REST API             | 80           | `Rest`                               | disabled | PolyScope X only                                   |
+| SSH and SFTP         | 22           | `Ssh.EnableSsh`, `Ssh.EnableSftp`    | disabled | `Secure Shell` enabled                             |
+| XML-RPC server       | 50000 (PC)   | `XmlRpc`                             | disabled | None. The robot program connects to the PC         |
+| Socket server        | 50001 (PC)   | `SocketCommunication`                | disabled | None. The robot program connects to the PC         |
+
+The Primary Interface can also use the Secondary Interface (30002) and the read only ports (30011, 30012), with `PrimaryInterface.Port`. The read only ports do not accept URScript.
+
+## Prepare the robot
+
+### Network
+
+The robot and the PC must be on the same network, with addresses in the same subnet. On PolyScope, the address is set in the menu at the top right, `Settings`, `System`, `Network`.
+
+Before it connects, `Connect` sends a ping to the robot and stops if the robot does not answer within 500 ms. When a firewall blocks the ping, set `PingBeforeConnecting` to `false`.
+
+### Services
+
+For security, each interface must be enabled on the robot. On PolyScope, open the menu at the top right, `Settings`, `Security`, `Services`, and enable the interfaces of the table above.
+
+![Enable the services](https://underautomation.com/universal-robots/enable-remote.png)
+
+In `Settings`, `Security`, `General`, the inbound connections must not be restricted for the ports that the SDK uses.
+
+![Inbound connections](https://underautomation.com/universal-robots/inbound-connection.png)
+
+### Remote control
+
+On e-Series and PolyScope X, the robot accepts commands from the network only in remote control: Dashboard commands that change its state (power, brakes, load, play), URScript sent with the Primary Interface, and REST commands. Reading data does not need it.
+
+Enable the remote control in `Settings`, `System`, `Remote Control`, then switch the robot from `Local` to `Remote` with the icon at the top right of PolyScope.
+
+![Enable remote control](https://underautomation.com/universal-robots/enable-remote-control.png)
+
+![Switch to remote control](https://underautomation.com/universal-robots/switch-remote.png)
+
+### Firewall of the PC
+
+The antivirus or the firewall of the PC can block these ports. If the connection fails, check them first. The XML-RPC and socket servers listen on the PC: allow their ports in the firewall of the PC.
+
+## Connect
+
+`Connect("192.168.0.1")` opens the Primary Interface and the Dashboard Server. To choose the interfaces and their settings, pass a `ConnectParameters`:
+
+```python
+from underautomation.universal_robots.ur import UR
+from underautomation.universal_robots.connect_parameters import ConnectParameters
+from underautomation.universal_robots.rtde.rtde_input_data import RtdeInputData
+from underautomation.universal_robots.rtde.rtde_output_data import RtdeOutputData
+
+robot = UR()
+
+parameters = ConnectParameters("192.168.0.1")
+
+# Enabled by default
+parameters.primary_interface.enable = True
+parameters.dashboard.enable = True
+
+# RTDE: select the data to exchange and the frequency
+parameters.rtde.enable = True
+parameters.rtde.frequency = 500  # Hz
+parameters.rtde.output_setup.add(RtdeOutputData.ActualTcpPose)
+parameters.rtde.output_setup.add(RtdeOutputData.ActualQ)
+parameters.rtde.input_setup.add(RtdeInputData.InputIntRegisters, 24)
+
+# Local XML-RPC server, called by the robot program
+parameters.xml_rpc.enable = True
+parameters.xml_rpc.port = 50000
+
+# Local socket server, the robot program connects to it
+parameters.socket_communication.enable = True
+parameters.socket_communication.port = 50001
+
+# SSH and SFTP, with the Linux user of the controller
+parameters.ssh.enable_ssh = True
+parameters.ssh.enable_sftp = True
+parameters.ssh.username = "ur"
+parameters.ssh.password = "easybot"
+
+# Interpreter Mode and REST API (PolyScope X) are disabled by default
+parameters.interpreter_mode.enable = False
+parameters.rest.enable = False
+
+robot.connect(parameters)
+
+# ...
+
+# Close every service
+robot.disconnect()
+```
+
+**ConnectParameters** ([reference](../api/underautomation.universal_robots.md#connectparameters))
+
+- `ConnectParameters(ip: str)`: Initializes a new instance of ConnectParameters with the specified robot IP address.
+- `ip: str`: IP address of the Universal Robots controller.
+- `ping_before_connecting: bool`: If true, a ping is sent to the robot before attempting connection. Default is true.
+- `primary_interface: PrimaryInterfaceConnectParameters`: Primary Interface connection parameters (port 30001/30002).
+- `dashboard: DashboardConnectParameters`: Dashboard Server connection parameters (port 29999).
+- `socket_communication: SocketCommunicationConnectParameters`: Socket communication connection parameters for exchanging data with URScript programs.
+- `ssh: SshConnectParameters`: SSH and SFTP connection parameters for file transfer and remote shell access.
+- `rtde: RtdeConnectParameters`: Real-Time Data Exchange (RTDE) connection parameters (port 30004).
+- `xml_rpc: XmlRpcConnectParameters`: XML-RPC connection parameters for remote procedure calls.
+- `interpreter_mode: InterpreterModeConnectParameters`: Interpreter Mode connection parameters for sending URScript lines interactively.
+- `rest: RestConnectParameters`: REST API connection parameters (PolyscopeX only)
+
+Each interface is also a class that works without `UR`: `PrimaryInterfaceClient`, `DashboardClient`, `RtdeClient`, `RestClient`, `SftpClient`, `SshClient`, `InterpreterModeClient`, `XmlRpcServer`, `SocketCommunicationServer`. The page of each interface shows it.
+
+## Errors
+
+`Connect` opens the interfaces one after the other. When one fails, it closes the others and throws:
+
+| Exception                 | Cause                                                                          |
+| ------------------------- | ------------------------------------------------------------------------------ |
+| `InvalidLicenseException` | The trial is over, or the license key is not valid                             |
+| `ConnectException`        | One interface did not connect. `Service` names it, `RobotIp` gives the address |
+| `Exception`               | The robot does not answer the ping, or the address is empty                    |
+
+After the connection, the errors of the background threads raise the event `InternalErrorOccured`, on `UR` and on each client.
+
+```python
+from underautomation.universal_robots.ur import UR
+from underautomation.universal_robots.common.internal_error_event_args import InternalErrorEventArgs
+from UnderAutomation.UniversalRobots.License import InvalidLicenseException
+from UnderAutomation.UniversalRobots.Common import ConnectException
+
+robot = UR()
+
+# The exceptions come from the .NET runtime: their members keep their .NET names
+try:
+    robot.connect("192.168.0.1")
+except InvalidLicenseException as ex:
+    # The trial is over or the license key is not valid
+    print(ex.LicenseInfo)
+except ConnectException as ex:
+    # One service did not connect: the other services are closed
+    print(f"{ex.Service} of {ex.RobotIp}: {ex.Message}")
+except Exception as ex:
+    # For example, the robot does not answer the ping
+    print(ex)
+
+# Errors that happen after the connection, in a background thread
+def on_error(sender, e):
+    error = InternalErrorEventArgs(e._instance)
+    print(f"{error.status}: {error.message}")
+
+robot.internal_error_occured(on_error)
+```
+
+## Disconnect
+
+`Disconnect()` closes every interface. Each client also has its own method: `robot.Rtde.Disconnect()`, `robot.Dashboard.Disable()`...
+
+## Try it in the demo application
+
+Everything on this page can be tried without writing code, in the [demo application](demo-app.md).
+
+## What to read next
+
+- [Develop without a robot](configure-offline-simulator.md): install URSim.
+- [RTDE](rtde.md) and [Primary Interface](data-streaming.md): read the state of the robot.
+- [Licensing](license.md): the 30 day trial and the license key.

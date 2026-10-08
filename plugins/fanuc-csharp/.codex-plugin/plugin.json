@@ -1,0 +1,48 @@
+{
+  "name": "fanuc-csharp",
+  "version": "7.1.0",
+  "description": "Write C# code for Fanuc robots with the UnderAutomation Fanuc SDK.",
+  "author": {
+    "name": "UnderAutomation",
+    "email": "contact@underautomation.com",
+    "url": "https://underautomation.com"
+  },
+  "homepage": "https://underautomation.com/fanuc",
+  "repository": "https://github.com/underautomation/skills",
+  "license": "MIT",
+  "keywords": [
+    "fanuc",
+    "robot",
+    "industrial-robot",
+    "snpx",
+    "rmi",
+    "stream-motion",
+    "karel",
+    "csharp",
+    "underautomation"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "UnderAutomation Fanuc (C#)",
+    "shortDescription": "Fanuc robot SDK for C#",
+    "longDescription": "UnderAutomation Fanuc SDK for C# and .NET (NuGet UnderAutomation.Fanuc). Use it when code talks to a Fanuc robot controller (R-30iA, R-30iB, R-30iB Plus, R-50iA) or a ROBOGUIDE virtual robot from a PC, or when the user asks about the Fanuc SDK, its protocols or its exceptions. Protocols of the SDK: CGTP web server, SNPX (Robot Interface), Telnet KCL, FTP, RMI (option R912) and Stream Motion (option J519). It answers questions such as which protocol and which controller option to use, how to read and write registers, variables and I/O, how to run a TP program, read the position or the alarms, transfer files, move the robot, plan a trajectory, compute the kinematics offline, and why an exception is thrown. It holds the documentation pages, the C# code samples and the list of every public type and member of the SDK.\n\nIntended users: developers who write C# and .NET applications that connect a PC to a Fanuc robot controller with the UnderAutomation Fanuc SDK.\n\nLimitations: the skill is documentation only. It does not connect to the robot and does not run code by itself. It documents version 7.1.0 of the SDK. The SDK (NuGet UnderAutomation.Fanuc) must be installed in the project and has its own license agreement.",
+    "developerName": "UnderAutomation",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Choose the protocol and the controller option for a task",
+      "Write C# code with the public API of the Fanuc SDK 7.1.0",
+      "Explain the exceptions of the SDK and what to check",
+      "Apply safety rules to the code that moves a robot"
+    ],
+    "websiteURL": "https://underautomation.com/fanuc",
+    "supportURL": "https://underautomation.com/contact",
+    "privacyPolicyURL": "https://underautomation.com/legal#privacy_policy",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png",
+    "defaultPrompt": [
+      "Which protocol should I use to read the position registers of my Fanuc robot?",
+      "Write a program that reads R[1] to R[10] and prints them.",
+      "Why do I get an exception when I connect to my Fanuc controller?"
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "name": "yaskawa-csharp",
+  "version": "3.0.1",
+  "description": "Write C# code for Yaskawa Motoman robots with the UnderAutomation Yaskawa SDK.",
+  "author": {
+    "name": "UnderAutomation",
+    "email": "contact@underautomation.com",
+    "url": "https://underautomation.com"
+  },
+  "homepage": "https://underautomation.com/yaskawa",
+  "repository": "https://github.com/underautomation/skills",
+  "license": "MIT",
+  "keywords": [
+    "yaskawa",
+    "motoman",
+    "robot",
+    "industrial-robot",
+    "high-speed-ethernet-server",
+    "yrc1000",
+    "dx200",
+    "csharp",
+    "underautomation"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "UnderAutomation Yaskawa (C#)",
+    "shortDescription": "Yaskawa robot SDK for C#",
+    "longDescription": "UnderAutomation Yaskawa SDK for C# and .NET (NuGet UnderAutomation.Yaskawa). Use it when code talks to a Yaskawa Motoman robot controller (YRC1000, YRC1000micro, MOTOMAN NEXT, DX100, DX200, FS100) from a PC, or when the user asks about the Yaskawa SDK, its protocols or its exceptions. Protocols of the SDK: High Speed Ethernet Server (UDP 10040 and 10041, the default), Ethernet Server (TCP 80), HTTP (web server) and FTP, plus offline kinematics for 169 robot models. It answers questions such as which protocol and which controller setting to use (remote mode, RS parameters, job selection), how to read the status, the position, the alarms, the variables and the I/O, how to switch the servo on, select and start a job, move the robot without a job, transfer files and back up the controller, compute the kinematics, and why an exception is thrown. It holds the documentation pages, the C# code samples and the list of every public type and member of the SDK.\n\nIntended users: developers who write C# and .NET applications that connect a PC to a Yaskawa robot controller with the UnderAutomation Yaskawa SDK.\n\nLimitations: the skill is documentation only. It does not connect to the robot and does not run code by itself. It documents version 3.0.1 of the SDK. The SDK (NuGet UnderAutomation.Yaskawa) must be installed in the project and has its own license agreement.",
+    "developerName": "UnderAutomation",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Choose the protocol and the controller option for a task",
+      "Write C# code with the public API of the Yaskawa SDK 3.0.1",
+      "Explain the exceptions of the SDK and what to check",
+      "Apply safety rules to the code that moves a robot"
+    ],
+    "websiteURL": "https://underautomation.com/yaskawa",
+    "supportURL": "https://underautomation.com/contact",
+    "privacyPolicyURL": "https://underautomation.com/legal#privacy_policy",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png",
+    "defaultPrompt": [
+      "Should I use the High Speed Ethernet Server or the Ethernet Server for my YRC1000?",
+      "Write a program that reads the I variables 0 to 9 and the robot position.",
+      "Why do I get an InvalidDataAnswerException \"Command remote not set\" when I start a job?"
+    ]
+  }
+}

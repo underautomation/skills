@@ -1,0 +1,128 @@
+{
+  "name": "underautomation",
+  "interface": {
+    "displayName": "UnderAutomation"
+  },
+  "plugins": [
+    {
+      "name": "abb-csharp",
+      "source": {
+        "source": "local",
+        "path": "./plugins/abb-csharp"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "abb-python",
+      "source": {
+        "source": "local",
+        "path": "./plugins/abb-python"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "fanuc-csharp",
+      "source": {
+        "source": "local",
+        "path": "./plugins/fanuc-csharp"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "fanuc-python",
+      "source": {
+        "source": "local",
+        "path": "./plugins/fanuc-python"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "staubli-csharp",
+      "source": {
+        "source": "local",
+        "path": "./plugins/staubli-csharp"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "staubli-python",
+      "source": {
+        "source": "local",
+        "path": "./plugins/staubli-python"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "universal-robots-csharp",
+      "source": {
+        "source": "local",
+        "path": "./plugins/universal-robots-csharp"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "universal-robots-python",
+      "source": {
+        "source": "local",
+        "path": "./plugins/universal-robots-python"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "yaskawa-csharp",
+      "source": {
+        "source": "local",
+        "path": "./plugins/yaskawa-csharp"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "yaskawa-python",
+      "source": {
+        "source": "local",
+        "path": "./plugins/yaskawa-python"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

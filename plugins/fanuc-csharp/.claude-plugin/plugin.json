@@ -1,0 +1,25 @@
+{
+  "name": "fanuc-csharp",
+  "version": "7.1.0",
+  "description": "Write C# code for Fanuc robots with the UnderAutomation Fanuc SDK.",
+  "author": {
+    "name": "UnderAutomation",
+    "email": "contact@underautomation.com",
+    "url": "https://underautomation.com"
+  },
+  "homepage": "https://underautomation.com/fanuc",
+  "repository": "https://github.com/underautomation/skills",
+  "license": "MIT",
+  "keywords": [
+    "fanuc",
+    "robot",
+    "industrial-robot",
+    "snpx",
+    "rmi",
+    "stream-motion",
+    "karel",
+    "csharp",
+    "underautomation"
+  ],
+  "displayName": "UnderAutomation Fanuc (C#)"
+}

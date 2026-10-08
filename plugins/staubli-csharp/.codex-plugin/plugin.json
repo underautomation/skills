@@ -1,0 +1,49 @@
+{
+  "name": "staubli-csharp",
+  "version": "1.0.0",
+  "description": "Write C# code for Staubli robots with the UnderAutomation Staubli SDK.",
+  "author": {
+    "name": "UnderAutomation",
+    "email": "contact@underautomation.com",
+    "url": "https://underautomation.com"
+  },
+  "homepage": "https://underautomation.com/staubli",
+  "repository": "https://github.com/underautomation/skills",
+  "license": "MIT",
+  "keywords": [
+    "staubli",
+    "robot",
+    "industrial-robot",
+    "soap",
+    "val3",
+    "cs8",
+    "cs9",
+    "staubli-robotics-suite",
+    "csharp",
+    "underautomation"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "UnderAutomation Staubli (C#)",
+    "shortDescription": "Staubli robot SDK for C#",
+    "longDescription": "UnderAutomation Staubli SDK for C# and .NET (NuGet UnderAutomation.Staubli). Use it when code talks to a Staubli robot controller (CS8 or CS9) or to a controller emulated by Staubli Robotics Suite from a PC, or when the user asks about the Staubli SDK, its protocols or its exceptions. Protocols of the SDK: the SOAP server of the controller (TCP port 851) and the FTP server of the controller for the files. It answers questions such as what the controller needs, how to read the joints and the Cartesian position, compute the forward and inverse kinematics, read and write the physical I/O, power the arm and send MoveJJ, MoveJC, MoveL and MoveC moves, load, start and stop VAL 3 applications, suspend and resume tasks, transfer files and VAL 3 projects, and why a CustomSoapException or another exception is thrown. It holds the documentation pages, the C# code samples and the list of every public type and member of the SDK.\n\nIntended users: developers who write C# and .NET applications that connect a PC to a Staubli robot controller with the UnderAutomation Staubli SDK.\n\nLimitations: the skill is documentation only. It does not connect to the robot and does not run code by itself. It documents version 1.0.0 of the SDK. The SDK (NuGet UnderAutomation.Staubli) must be installed in the project and has its own license agreement.",
+    "developerName": "UnderAutomation",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Choose the protocol and the controller option for a task",
+      "Write C# code with the public API of the Staubli SDK 1.0.0",
+      "Explain the exceptions of the SDK and what to check",
+      "Apply safety rules to the code that moves a robot"
+    ],
+    "websiteURL": "https://underautomation.com/staubli",
+    "supportURL": "https://underautomation.com/contact",
+    "privacyPolicyURL": "https://underautomation.com/legal#privacy_policy",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png",
+    "defaultPrompt": [
+      "What do I need on my Staubli CS9 controller to read the robot position from my application?",
+      "Write a program that reads the joints and the Cartesian position of my Staubli robot.",
+      "Why do I get a CustomSoapException when I connect to my Staubli controller?"
+    ]
+  }
+}

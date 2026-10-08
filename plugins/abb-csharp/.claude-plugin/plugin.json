@@ -1,0 +1,26 @@
+{
+  "name": "abb-csharp",
+  "version": "1.1.0",
+  "description": "Write C# code for ABB robots with the UnderAutomation ABB SDK.",
+  "author": {
+    "name": "UnderAutomation",
+    "email": "contact@underautomation.com",
+    "url": "https://underautomation.com"
+  },
+  "homepage": "https://underautomation.com/abb",
+  "repository": "https://github.com/underautomation/skills",
+  "license": "MIT",
+  "keywords": [
+    "abb",
+    "robot",
+    "industrial-robot",
+    "robot-web-services",
+    "rws",
+    "rapid",
+    "irc5",
+    "omnicore",
+    "csharp",
+    "underautomation"
+  ],
+  "displayName": "UnderAutomation ABB (C#)"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "fanuc-python",
+  "version": "7.1.0",
+  "description": "Write Python code for Fanuc robots with the UnderAutomation Fanuc SDK.",
+  "author": {
+    "name": "UnderAutomation",
+    "email": "contact@underautomation.com",
+    "url": "https://underautomation.com"
+  },
+  "homepage": "https://underautomation.com/fanuc",
+  "repository": "https://github.com/underautomation/skills",
+  "license": "MIT",
+  "keywords": [
+    "fanuc",
+    "robot",
+    "industrial-robot",
+    "snpx",
+    "rmi",
+    "stream-motion",
+    "karel",
+    "python",
+    "underautomation"
+  ],
+  "displayName": "UnderAutomation Fanuc (Python)"
+}
